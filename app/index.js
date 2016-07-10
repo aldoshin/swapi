@@ -7,7 +7,9 @@ import favoritesView from './views/favorites/';
 
 let ngModule = angular
     .module('swapi', [
-        require('angular-ui-router')
+        require('angular-ui-router'),
+        require('./services'),
+        require('./components')
     ])
     .config(routing);
 

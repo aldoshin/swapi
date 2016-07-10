@@ -7,7 +7,7 @@ export default function mainRoute($stateProvider) {
         .state('main', {
             url: '/',
             template: require('./main.view.html'),
-            // controller: 'MainController',
-            // controllerAs: 'mainCtrlr'
+            controller: 'MainController',
+            controllerAs: 'mainCtrlr'
         });
 }

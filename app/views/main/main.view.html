@@ -2,7 +2,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <h1><a class="navbar-brand" href="">Swapi</a></h1>
+                <a class="navbar-brand" href="">Swapi</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="" ui-sref='main' ui-sref-active='active'>People List</a></li>
@@ -11,6 +11,8 @@
         </div>
     </nav>
     <div class="container" ui-view>
-      <h1>Main view</h1>
+        <pre>
+          {mainCtrlr.people | json}
+        </pre>
     </div>
 </div>
