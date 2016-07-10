@@ -1,61 +1,68 @@
 <div class="person-card">
-  <div class="row">
-    <div class="col-xs-12">
-      <button class="btn btn-success btn-block"type="button" name="favorites">Add to Favorites</button>
+    <div class="row">
+        <div class="col-xs-12" ng-if="ctrl.error">
+            <p class="bg-danger text-danger alert-msg">
+                <button type="button" class="close" data-ng-click="ctrl.clearError()"><span aria-hidden="true">×</span></button>
+                {{::ctrl.error}}
+            </p>
+        </div>
+        <div class="col-xs-12" data-ng-switch="ctrl.person.favorite">
+            <button data-ng-switch-when="true" data-ng-click="ctrl.removeFromFavorites()" class="btn btn-primary btn-block" type="button" name="favorites">Remove from Favorites</button>
+            <button ng-switch-default data-ng-click="ctrl.addFavorites()" class="btn btn-success btn-block" type="button" name="favorites">Add to Favorites</button>
+        </div>
     </div>
-  </div>
-  <table class='table results-xs-table'>
-    <colgroup>
-      <col class="col-xs-6"></col>
-      <col class="col-xs-6"></col>
-    </colgroup>
-    <tr>
-      <th>
-        Name
-      </th>
-      <td>
-        {{::ctrl.person.name}}
-      </td>
-    </tr>
-    <tr>
-      <th>
-        Gender
-      </th>
-      <td>
-        {{::ctrl.person.gender}}
-      </td>
-    </tr>
-    <tr>
-      <th>
-        Hair Color
-      </th>
-      <td>
-        {{::ctrl.person.hair_color}}
-      </td>
-    </tr>
-    <tr>
-      <th>
-        Skin Color
-      </th>
-      <td>
-        {{::ctrl.person.skin_color}}
-      </td>
-    </tr>
-    <tr>
-      <th>
-        Eye Color
-      </th>
-      <td>
-        {{::ctrl.person.eye_color}}
-      </td>
-    </tr>
-    <tr>
-      <th>
-        Birth Year
-      </th>
-      <td>
-        {{::ctrl.person.birth_year}}
-      </td>
-    </tr>
-  </table>
+    <table class='table results-xs-table'>
+        <colgroup>
+            <col class="col-xs-6"></col>
+            <col class="col-xs-6"></col>
+        </colgroup>
+        <tr>
+            <th>
+                Name
+            </th>
+            <td>
+                {{::ctrl.person.name}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Gender
+            </th>
+            <td>
+                {{::ctrl.person.gender}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Hair Color
+            </th>
+            <td>
+                {{::ctrl.person.hair_color}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Skin Color
+            </th>
+            <td>
+                {{::ctrl.person.skin_color}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Eye Color
+            </th>
+            <td>
+                {{::ctrl.person.eye_color}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Birth Year
+            </th>
+            <td>
+                {{::ctrl.person.birth_year}}
+            </td>
+        </tr>
+    </table>
 </div>
