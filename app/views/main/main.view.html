@@ -11,8 +11,10 @@
         </div>
     </nav>
     <div class="container" ui-view>
-        <pre>
-          {mainCtrlr.people | json}
-        </pre>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="person in mainCtrlr.people">
+                <sw-person-card person="person"></sw-person-card>
+            </li>
+        </ul>
     </div>
 </div>
