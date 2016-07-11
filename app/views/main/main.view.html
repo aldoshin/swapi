@@ -11,10 +11,17 @@
         </div>
     </nav>
     <div class="container" ui-view>
-        <ul class="list-group">
+        <ul class="people list-group" when-scrolled="mainCtrlr.morePeople()">
             <li class="list-group-item" ng-repeat="person in mainCtrlr.people">
                 <sw-person-card person="person"></sw-person-card>
             </li>
         </ul>
+        <div class="row">
+            <div class="col-xs-12" ng-if="mainCtrlr.noData">
+                <p class="bg-danger text-danger alert-msg">
+                    No more data to load from SWAPI API.
+                </p>
+            </div>
+        </div>
     </div>
 </div>
