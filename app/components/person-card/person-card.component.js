@@ -9,14 +9,23 @@ function PersonCardController(favoritesService) {
         clearError
     });
 
+    vm.onAction = vm.onAction || angular.noop;
+
     function addFavorites() {
         favoritesService
             .addTofavorites(vm.person)
+            .then(favorites => vm.onAction({
+                favorites
+            }))
             .catch(() => vm.error = 'Cannot add more items to favorites');
     }
 
     function removeFromFavorites() {
-        favoritesService.removeFromFavorites(vm.person);
+        favoritesService
+            .removeFromFavorites(vm.person)
+            .then(favorites => vm.onAction({
+                favorites
+            }));
     }
 
     function clearError() {
@@ -32,7 +41,8 @@ export default function swPersonCard() {
         controller: PersonCardController,
         controllerAs: 'ctrl',
         bindToController: {
-            person: '='
+            person: '=',
+            onAction: '&?'
         }
     };
 }

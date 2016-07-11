@@ -1,3 +1,11 @@
 <div class="favorites">
-  <h1>Favorites View</h1>
+    <div class="jumbotron">
+        <h4 class=" text-warning" data-ng-if="!favCtrlr.favorites.length">You do not have any favorites, go back to <a href="" ui-sref="main">People List</a> and add some heroes.</h4>
+        <h4 data-ng-if="favCtrlr.favorites.length">You have {{favCtrlr.favorites.length}} favorites:</h4>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="person in favCtrlr.favorites">
+            <sw-person-card person="person" on-action="favCtrlr.updatedList(favorites)"></sw-person-card>
+        </li>
+    </ul>
 </div>
